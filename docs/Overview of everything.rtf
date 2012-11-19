@@ -1,0 +1,116 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf320
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww11840\viewh19440\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\b\fs24 \cf0 High-level algorithm:
+\b0 \
+Our application gets called with a set of information about the current article. Eventually we'd at least want to know the sectionfront and the terms.  For now, the sectionfront should be sufficient.\
+\
+It then chooses a musical 
+\i style
+\i0 , consisting of a rhythmic pattern and an instrumental palette.  More than one rhythmic pattern can go with each instrumental palette and vice versa.\
+\
+A tempo is chosen within the range prescribed for the chosen rhythm.\
+\
+It then chooses a chord progression, main motif, bass motif, and accompaniment pattern for the song.\
+\
+A data structure is created for the score.\
+\
+The score gets filled with all our elements - chord progression, drums, bass, accompaniment pattern, and main motif/melody.\
+\
+The score gets output as JSON and returned to the browser.\
+\
+\
+
+\b Musical things to create:
+\b0 \
+List of rhythmic patterns\
+Drum loop for each rhythmic pattern\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 Tempo range for each rhythm.\
+List of instrumental palettes\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 List of instruments\
+Bass motifs for each rhythmic pattern\
+Accompaniment pattern for each rhythmic pattern\
+Melodic motifs, perhaps along with list of which rhythmic patterns they'll go with\
+Chord progressions\
+\
+
+\b Utilities we'll need:\
+
+\b0 (done) Tool to parse chord progressions from a text file and insert into the db\
+Tool to parse motifs, drum loops, and accompaniment patterns from something (text file?) and insert into the db\
+\
+
+\b Choices/weights/percentages:
+\b0 \
+We'll make various choices at various points - I'd like to have a nice way to storing and accessing weights for different options.  See choices.class.php for a somewhat crude start.
+\b \
+\
+Internal data structures:
+\b0 \
+
+\i The score
+\i0  - presently I imagine this to be simply a multidimensional array.  One dimension corresponds to 8th notes or 16th notes, and another dimension corresponds to individual "tracks" - as in, bass, kick drum, etc.   Each entry can be a MIDI pitch value.  This way, it's easy to determine what's happening among all the tracks at any given point in the score... sort of... except that we don't have a great way of showing what pitch is being sustained.  Array entries could also contain a "0" for  a note-off event... hmm.\
+\
+
+\i Pitch
+\i0  - an absolute MIDI pitch value, like "64" or "65".\
+
+\i Pitch-class
+\i0  - there are 12 pitch classes, corresponding to the 12 pitches of the standard octave.\
+
+\i Interval
+\i0  - the distance between two pitch-classes or two pitches\
+
+\i Duration
+\i0  - probably appropriate units here would be sixteenth notes.  So, a quarter note would have a duration of 4.\
+
+\i Note
+\i0  = pitch + duration\
+
+\i Motif
+\i0  = an ordered set of notes\
+
+\i Chord 
+\i0 = a representation of a chord.  Output as a chord symbol, but stored internally as a bass note + other chord notes\
+\
+Optionally, a "note" could really be a chord, as in, a duration + an array of pitches.  That makes accompaniment patterns easier to handle, but it makes every data structure more complex.\
+\
+More complex structures (trees, etc.) would be needed for later, more AI-oriented versions of this project.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 Database tables:\
+
+\i\b0 motif
+\i0  - stores sequences of notes.  In a traditional SQL database, it could have columns 
+\i motif_id, seq, pitch, duration
+\i0\b \
+
+\i\b0 motif2type
+\i0 \ul  \ulnone - maps motifs to motif types\
+
+\i motif_type
+\i0  - main, bass, accompaniment, drum\
+
+\i chord_progression
+\i0  - stores sequences of chords.  Analogous to the 
+\i motif
+\i0  table, but for chord symbols.\
+
+\i motif2section
+\i0  - which motifs can be used for which sectionfronts?\
+
+\i etc -
+\i0  we need tables describing which elements can be used for what musical styles, etc.\
+\
+
+\b Tasks:
+\b0 \
+(partially done) Classes to manipulate the various internal data structures.\
+Model - there's a long ways to go to create classes that store and retrieve data etc.\
+Logic to place bass motifs and melodic motifs into the score - this can be done last!}

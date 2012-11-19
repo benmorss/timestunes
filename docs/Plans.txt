@@ -1,0 +1,55 @@
+BASIC ARCHITECTURE
+
+Machine-generated vs curated:
+For a proof of concept in a short development process, it is safer to do more recombining stock phrases and less machine-generated original material.  If it sounds good from that point, and our design is sufficiently modular (which should not be hard), we can insert more original material into later versions.  A little unfortunate in that massaging machine-generated stuff into nice music is the really interesting part theoretically, but based on past experience I think it's safer to wait there.
+
+Time signature:
+Everything is in 4/4 for now.  Take pains to make this modular also so that we can incorporate 3/4, 6/8, etc in v0.2.
+
+Approach to randomness:
+We'll be making many choices here based on randomness and probabilities we assign.
+It would be cool if each article always generated the same music.  Accordingly, we don't want true randomness.  Each article should generate a consistent hash, which either we use to seed the random number generator, or, better still, which we then apply directly to everything that involves a random decision.  A large hash modulo 100 would be handy.
+Certain factors will weight our random choices in specific directions.  This weighing process will probably occur a few times -- like, from the section, from any interesting terms, etc.
+
+Rhythm:
+10-odd stock percussion patterns for different styles
+- each with a map of accented beats if there are any, for accompaniment and melodic emphasis
+- each with a range of possible tempi
+- each with a set of likely instrumental palettes
+Accompaniment patterns
+
+Chord progressions:
+1) a set of stock chord progressions
+2) a set of simple macro-progressions that connect chord progressions in an A-B or AABA pattern,
+or, perhaps easier for now, a set of stock bridges
+Harmonic rhythm - an average chord can take up 4, 2, or 1 measures.  Individual chords in a progression can be half-length, normal length, or double-length.
+
+Main motif (Hauptstimme): this is where we'd really like to randomly and intelligently modify stock material.
+My thought was to make this simple - play a motif over a chord… pause… then play it in varied form over the next chord… rinse and repeat.  If executed over a bed of ambient material, this could be quite effective.  This is the heart of the project, an area where much experimentation could be done.  And motifs that were generated entirely randomly might also be effective.  But we'd populate this with some stock motifs for certain topics or even sections to begin with.
+
+Secondary motif (Nebenstimme): something to throw against the first motif in a subtler way
+
+Bass lines:
+include a few stock bass lines for each rhythmic style, and allow modifications/randomizations
+or, safer - include bass lines with different options for each bit to allow many quasi-human-curated variations
+
+Transitions:
+We should have the last page from _REFERER, but it would be faster if we could store the relevant terms from the previous page and pass those on to the next page.  Do we have a session cookie we can use?
+We can have certain modulating techniques from key to key
+
+
+PROCEDURE
+For initial test:
+* Choose a rhythmic style.
+* Each rhythmic style maps, for now, to a single accompaniment pattern.
+* Choose a sonic palette. 
+* Generate a single chord progression.
+* Choose or generate a motif.
+* Place that motif over the chords.
+
+
+MAPPING TERMS TO CHOICES
+For certain sections, make certain sets of instrumental and rhythmic palettes more probable. (For example, articles in Sports might have a 35% chance of something martial with trumpets, snare, and march beats, a 25% chance of some loud MIDI rock… if we were really smart, articles about Sports from other countries might 
+
+Eras - like, 1980s US or Europe could imply 80s synths
+Styles of specific composers or artists mentioned -- long-term

@@ -1,0 +1,19 @@
+DATA ARCHITECTURE
+
+Our score:
+an array of 16th-note beats for each voice. Each member of the array can contain a number representing a pitch, or a special value indicating that a previous note is to be sustained.
+
+A motif:
+An array of note objects
+
+Bass pattern:
+Like a motif
+
+Note object:
+Has a duration and a pitch
+
+Duration:
+Expressed as a multiple of 16th notes
+
+Pitch:
+Use MIDI values.  Why not?

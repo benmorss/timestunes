@@ -1,0 +1,73 @@
+MAKING CHOICES BASED ON ARTICLE INFO
+
+THINGS TO CHOOSE:
+style, rhythm, tempo, accompaniment pattern, bass motif, main motif
+
+SECTIONS
+
+Sports
+	Chord progressions: simpler
+	Instrumentation: more martial instrumentation, rock
+	Rhythm: rock, march
+
+Arts
+	any
+
+Politics
+	See sports :-)
+
+
+TERMS
+
+Obama
+	Hail to the Chief
+
+Energy
+
+Beethoven
+	5th Symphony motif
+
+
+IMPLEMENTATION
+There are so many weights that we may want to just pull them out of a db.
+Each section needs weights for each chord progression, each instrumentation, each rhythm.  This might be like 300 weights.  Might be nice to store all that in a spreadsheet and import it via CSV or via an Excel-importing library.
+
+Style: create a table full of weights:
+			ROCK	FUNK
+SPORTS		20		30
+ARTS
+
+To process this, it doesn't matter whether each row adds up to 100 - that can happen when the table gets put into the DB.
+To make the actual choice, pull out of the db the weights for each style -- and then make a choice.
+
+Main motif: for now, choose randomly.  These are stored in the db, like:
+$model->choose_motif(Model::MAIN_MOTIF)
+
+Bass motif: have one or two for each style.  Choose randomly.
+$model->choose_motif(Model::BASS_MOTIF, $style)
+
+Accomp. pattern: for now, one per style.
+$model->choose_motif(Model:ACCOMPANIMENT, $style)
+
+Tempo: for each section, have a set tempo.  Then it can get, say, 20% different in either direction, weighted toward the center.
+$model->choose_tempo($style)
+
+Optionally, those should be $weights->choose_motif(Weights:MAIN_MOTIF)
+
+Then, the weights class would have something like:
+function choose_tempo($style) {
+	$base_tempo = $this->model->get_tempo($style);
+	$multiplier = rand(0, rand(0, $this->MAX_TEMPO_SHIFT));
+	return intval($base_tempo * $multiplier);
+}
+
+function choose_motif($choice, ???) {
+	switch ($style) {
+		case Model::MAIN_MOTIF:
+			$style_weights = $this->model->getStyleWeightsForSection($section);
+			// add them up
+			// get a random number between 0 and the sum
+			// pick your favorite!
+		break;
+	}
+}

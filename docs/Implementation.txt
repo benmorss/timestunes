@@ -1,0 +1,33 @@
+IMPLEMENTATION
+
+CLIENT-SIDE TASKS:
+Retrieve section name and terms from metadata (some day it could pull much more)
+Send those via AJAX to server side
+The server will respond with quasi-MIDI data and names of soundfont files.
+Parse that data and feed it to our player.
+Make a player.
+Find or create soundfonts for the patches we need to implement instrumentation palettes.
+
+SERVER-SIDE CLASSES NEEDED:
+MidiSequence - for converting between a MIDI sequence and our representation
+NoteSequence - put Notes into it, get Notes out of it, get current index, etc
+Motif - superclass of NoteSequence.
+Score - putting music into a score, seeing what note is at a certain measure and beat, etc.
+Weights - pull values by key out of an array, and also more complex weight determination.
+
+PREMADE MUSICAL PATTERNS
+Get a number (to be determined) of rhythmic patterns together.  (Steal from someone else!)
+Get a number of instrumentation palettes together.
+
+DATA
+Quasi-MIDI data: what format should this have?  Perhaps we should just use standard MIDI.  Research that.
+
+
+OTHER
+Choose patches we'll need from insrumentation palettes. 
+
+
+AN EXAMPLE OF HOW WE MIGHT TEST A NOTE AND PUT IT IN THE SCORE
+Looking for the next note: 
+
+
