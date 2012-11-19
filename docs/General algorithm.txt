@@ -1,0 +1,11 @@
+GENERAL ALGORITHM:
+
+Retrieve section info and terms.
+Pick a main motif accordingly.
+(Choose a form - not for this version)
+Choose a rhythmic style.
+Choose an arrangement palette.
+Choose a bass motif.
+Choose or generate a chord progression.
+Place the accompaniment in the score.
+Create a tune by developing the motif into the score.

@@ -1,0 +1,4 @@
+TERMS
+Daniel Greisokh might be able to run a query showing most frequently used terms
+On wiki: timetags:faq and wiki.em.nytimes.com/timestags
+Use Scope Note Reader on back of Times Tags packet

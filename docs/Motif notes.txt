@@ -1,0 +1,42 @@
+Sample motif: Cdq De Fq Eq Ch
+Sample chords:  C  F/A  C/E  F  C
+
+Possible results:  Cdq De Fq Eq Ch
+
+
+
+
+
+RULES FOR MOTIF MANIPULATION
+The final note's duration can be modified.
+It's likely ok to modify one note of a motif.  More notes = less likely.
+One note = 80%.  Two notes = 25%.  Three notes = 10%.
+More modification occurs as it goes along.
+Certain modifications should be remembered - mutations that persist for x times through.
+
+MOTIF MUTATIONS/MODIFICATIONS
+Offset first note by an eighth beat, in either direction
+ (maybe only if there is already an eighth note in the pattern)
+ (ensure that we still enter strongly; that is, that we arrive on a strong beat soon)
+ (and the result isn't something strange, like an eighth tied to a dotted quarter)
+
+Offset one note by a pitch or two.
+ (especially, take a leap and extend it)
+ (it that results in a dissonance, that's usually ok if its gotten to by oblique/stepwise motion)
+
+Shorten by a note or lengthen by a note.
+ (Shorten is easier for us)
+ (If lengthening, lengthen so that the extra note resolves a dissonance)
+
+ It might be useful to have a few common formulas for development... for example, if the last two notes of a motif are stepwise, extend that by a step or two.  Or if they express a third, fill in the gap.  If they leap, try to go one step in the opposite direction.  Etc.
+
+
+SUFFICIENT CONSONANCE
+A more advanced idea would be to not allow total consonance all the time.
+Consonant notes = notes that are a unison, third, fifth, or octave above the chord root... or... notes that are in the current chord.
+
+
+FOR LATER VERSIONS OF TIMESTUNES
+Eschew parallel fifths
+Encourage contrary motion or at least one note being same
+

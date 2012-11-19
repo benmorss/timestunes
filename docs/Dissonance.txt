@@ -1,0 +1,22 @@
+TREATING DISSONANCE
+
+A dissonance is any note that's not in the chord.
+(For pop, it might be useful to have lots of chords that contain added 2 etc)
+
+A dissonance is ok if it is followed by a consonance that's one step away or the same note.
+If not, do the following:
+1) move it randomly up or down by a half-step and see if that works.
+2) same thing, other direction
+3) repeat steps 1 and 2 until you have an acceptable pitch.
+
+Or, better yet: treat the dissonance.  Love it.  And make it resolve via a standard formula: suspension, passing tone, three-note resolution (like C-E-D over G)
+
+For now, really, it might just be fine to allow the first or last note to be dissonant.
+
+Do we care at all about weak beats and strong beats?
+
+
+PLACING A MOTIF OVER A NEW CHORD
+For simplicity, for now, keep a one-to-one correspondence between motifs and chords.
+
+Calculate how long the motif is and how long a chord lasts.  We're ok as long as the motif is shorter than the chord.
