@@ -13,7 +13,7 @@ $motif = new Motif($midi);
    We will already have determined how many measures each motif instance should span.
  */
    ///TODO: deal with $beat
-for ($measure = 1; $measure += $motif->measuresSpanned, $measure <= $score->length) {
+for ($measure = 1; $measure += $motif->measuresSpanned; $measure <= $score->length) {
 	$score->setCurrentMeasure($measure);
 
 	foreach ($motif->notes as $index => $note) {
